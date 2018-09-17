@@ -22,12 +22,11 @@ public class NumberWizard : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.UpArrow)) {
             Debug.Log("You pushed the Up Arrow.");
         }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
             Debug.Log("You pushed the Down Arrow.");
         }
-
-        if (Input.GetKeyDown(KeyCode.Return))
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("You pushed Enter.");
         }
