@@ -11,30 +11,32 @@ public class NumberWizard : MonoBehaviour
     void Start ()
     {
         Debug.Log("Weclome to Number Wizard!");
-        Debug.Log("Pick a number. Don't tell me what it is.");
-        Debug.Log("The highest number you can pick is " + max + ".");
-        Debug.Log("The lowest number you can pick is " + min + ".");
-        Debug.Log("Tell me if you number is higher or lower than " + guess + ".");
-        Debug.Log("Up Arrow for higher. Down Arrow for lower. Enter for correct guess.");
+        Debug.Log("Think of a number between " + min + " and " + max + " inclusive.");
+        Debug.Log("Don't tell me what it is. I'll try to guess it.");
+        Debug.Log("Press the Up Arrow for higher, the Down Arrow for lower, or Enter if I guessed correctly.");
+        Debug.Log("Is your number " + guess + "?");
+        max = max + 1;
     }
 	
 	void Update ()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Debug.Log("You pushed the Up Arrow.");
+            Debug.Log("Nope. Higher than " + guess + ".");
             min = guess;
-            Debug.Log(guess);
+            guess = (max + min) / 2;
+            Debug.Log("Is your number " + guess + "?");
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Debug.Log("You pushed the Down Arrow.");
+            Debug.Log("Nope. Lower than " + guess + ".");
             max = guess;
-            Debug.Log(guess);
+            guess = (max + min) / 2;
+            Debug.Log("Is your number " + guess + "?");
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("You pushed Enter.");
+            Debug.Log("Yep! My number was " + guess + ".");
         }
     }
 }
